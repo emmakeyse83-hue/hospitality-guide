@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>EOS Hospitality Guide</title>
+
+<!-- iOS PWA meta tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="EOS Hospitality">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#14181c;
+    --ink-soft:#4a5158;
+    --cream:#f7f3ec;
+    --cream-card:#ffffff;
+    --line:#e7ded0;
+    --accent:#2fa0c6;
+    --accent-deep:#1c7896;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html{ background:var(--cream); }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Mulish', -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:56px;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  /* ===== Header ===== */
+  header.app-header{
+    background:var(--ink);
+    color:#f7f3ec;
+    padding:calc(env(safe-area-inset-top) + 22px) 20px 20px;
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  header.app-header h1{
+    font-size:28px;
+    color:#faf8f3;
+    line-height:1.1;
+  }
+  header.app-header p.sub{
+    margin-top:8px;
+    font-size:13.5px;
+    color:#c9cdd2;
+    max-width:34em;
+    line-height:1.5;
+  }
+
+  main{ background:var(--cream); }
+
+  /* ===== Section nav (top-level) ===== */
+  nav.section-nav{
+    background:var(--ink);
+    position:sticky;
+    top:0;
+    z-index:30;
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    padding:0 12px;
+  }
+  nav.section-nav::-webkit-scrollbar{ display:none; }
+  nav.section-nav button{
+    flex:0 0 auto;
+    background:none;
+    border:none;
+    color:#9aa3ab;
+    font-family:'Mulish',sans-serif;
+    font-weight:800;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    padding:14px 12px;
+    border-bottom:3px solid transparent;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  nav.section-nav button.active{
+    color:#fff;
+    border-bottom-color:var(--accent);
+  }
+
+  /* ===== Toolbar (search + sub-chips) ===== */
+  .toolbar{
+    background:var(--cream);
+    position:sticky;
+    top:45px;
+    z-index:20;
+    padding:14px 20px 12px;
+    border-bottom:1px solid var(--line);
+  }
+  .search-wrap{ position:relative; margin-bottom:12px; }
+  .search-wrap input{
+    width:100%;
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:11px 14px 11px 38px;
+    font-family:'Mulish',sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .search-wrap input::placeholder{ color:#9aa0a6; }
+  .search-wrap svg{
+    position:absolute; left:12px; top:50%; transform:translateY(-50%);
+    width:16px; height:16px; stroke:#9aa0a6;
+  }
+
+  .month-select{
+    display:block;
+    width:100%;
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px 14px;
+    margin-bottom:12px;
+    font-family:'Mulish',sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    color:var(--ink);
+    -webkit-appearance:none;
+    appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5158' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 12px center;
+    background-size:16px;
+  }
+
+  .chips{ display:flex; gap:8px; overflow-x:auto; padding-bottom:2px; scrollbar-width:none; }
+  .chips::-webkit-scrollbar{ display:none; }
+  .chip{
+    flex:0 0 auto;
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    font-family:'Mulish',sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    padding:8px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .chip.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
+  .chip .dot{ display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+
+  p.section-intro{
+    padding:16px 20px 0;
+    margin:0;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.55;
+    background:var(--cream);
+  }
+
+  /* ===== Groups / subheadings ===== */
+  section.group{ background:var(--cream); padding:20px 20px 4px; }
+  section.group h2{
+    font-size:21px;
+    color:var(--ink);
+    padding-bottom:4px;
+    border-bottom:2px solid var(--ink);
+    display:inline-block;
+    margin-bottom:14px;
+  }
+  section.group h2 .accent-word{ color:var(--accent-deep); }
+
+  .card-grid{ display:flex; flex-direction:column; gap:12px; margin-bottom:6px; }
+
+  /* ===== Dated card (Spectator Sports / Entertainment) ===== */
+  .card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:14px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .card .datebox{
+    flex:0 0 58px;
+    background:var(--ink);
+    color:#fff;
+    border-radius:11px;
+    text-align:center;
+    padding:8px 4px;
+    font-family:'Mulish',sans-serif;
+  }
+  .card .datebox .d{ font-size:19px; font-weight:800; line-height:1; }
+  .card .datebox .m{ font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:#c9cdd2; margin-top:3px; }
+  .card .datebox.range .d{ font-size:14px; }
+  .card .body{ flex:1; min-width:0; }
+  .card .cat-row{ display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+  .card .cat-icon{ width:15px; height:15px; flex:0 0 auto; }
+  .card .cat-label{ font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; font-weight:800; color:var(--accent-deep); }
+  .card h3{ font-size:16.5px; line-height:1.25; color:var(--ink); margin-bottom:3px; }
+  .card .venue{ font-size:12.5px; color:var(--ink-soft); font-weight:600; margin-bottom:4px; }
+  .card .note{ font-size:13px; color:var(--ink-soft); line-height:1.45; }
+  .card .datestring{ font-size:11px; color:#9aa0a6; font-weight:700; margin-top:6px; letter-spacing:0.02em; }
+  .card .eventlink, .idea-card .eventlink{
+    display:inline-block;
+    margin-top:8px;
+    font-size:12px;
+    font-weight:700;
+    color:var(--accent-deep);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent-deep);
+  }
+  .card .eventlink:hover, .idea-card .eventlink:hover{ opacity:0.75; }
+
+  /* ===== Idea card (Sports / Eating Out / Project Socials; not dated) ===== */
+  .idea-card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:14px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .idea-card .icon-wrap{
+    flex:0 0 42px;
+    width:42px; height:42px;
+    border-radius:11px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .idea-card .icon-wrap svg{ width:20px; height:20px; }
+  .idea-card .body{ flex:1; min-width:0; }
+  .idea-card h3{ font-size:16px; line-height:1.25; color:var(--ink); margin-bottom:3px; }
+  .idea-card .tag{ font-size:12px; color:var(--accent-deep); font-weight:700; margin-bottom:4px; }
+  .idea-card .note{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
+
+  .empty-state{ padding:60px 20px; text-align:center; color:var(--ink-soft); }
+  .empty-state .display{ font-size:20px; margin-bottom:6px; color:var(--ink); }
+
+  /* ===== Home ===== */
+  .home-hero{
+    padding:26px 20px 6px;
+    background:var(--cream);
+  }
+  .home-hero .display{
+    font-size:24px;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .home-hero p{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin:0;
+    max-width:34em;
+  }
+  .home-grid{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    padding:18px 20px 6px;
+    background:var(--cream);
+  }
+  .home-card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    cursor:pointer;
+    text-align:left;
+    width:100%;
+    font-family:'Mulish',sans-serif;
+  }
+  .home-card:active{ opacity:0.85; }
+  .home-card .icon-wrap{
+    flex:0 0 46px;
+    width:46px; height:46px;
+    border-radius:12px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .home-card .icon-wrap svg{ width:22px; height:22px; }
+  .home-card .body{ flex:1; min-width:0; }
+  .home-card h3{
+    font-size:16.5px;
+    color:var(--ink);
+    margin-bottom:3px;
+  }
+  .home-card .blurb{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.45;
+  }
+  .home-card .chevron{
+    flex:0 0 auto;
+    color:#c3cad0;
+    font-size:20px;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink);
+    color:#e7e9eb;
+    padding:34px 20px calc(env(safe-area-inset-bottom) + 34px);
+    margin-top:30px;
+  }
+  footer .display{ color:#faf8f3; font-size:20px; margin-bottom:10px; }
+  footer p{ font-size:13.5px; color:#c9cdd2; line-height:1.6; margin:0 0 14px; }
+  footer .contact-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  footer .contact-name{ font-weight:800; font-size:14.5px; color:#fff; }
+  footer .contact-role{ font-size:12px; color:var(--accent); font-weight:700; letter-spacing:0.02em; margin-bottom:8px; }
+  footer a{ color:#fff; text-decoration:none; font-weight:700; font-size:13.5px; display:block; margin-top:4px; }
+  footer .brandline{ margin-top:22px; font-size:11px; color:#8b9096; letter-spacing:0.03em; }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="eyebrow">EOS &middot; Corporate Hospitality</div>
+  <h1>Hospitality Guide</h1>
+  <p class="sub">A guide for contracts managers: inspiration for memorable client engagement in 2027, to help build stronger personal relationships. Curated for the EOS team.</p>
+</header>
+
+<nav class="section-nav" id="sectionNav"></nav>
+
+<main>
+  <div class="toolbar" id="toolbar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search&hellip;" autocomplete="off">
+    </div>
+    <select id="monthSelect" class="month-select"></select>
+    <div class="chips" id="chipRow"></div>
+  </div>
+  <p class="section-intro" id="sectionIntro"></p>
+  <div id="results"></div>
+</main>
+
+<footer>
+  <div class="display">Planning something?</div>
+  <p>Everything here is a starting point: availability, pricing and current operating details change fast, especially for headline fixtures and small restaurants. Speak to Maria for more ideas or bespoke event alternatives.</p>
+  <div class="contact-card">
+    <div class="contact-name">Maria Heron-Singh</div>
+    <div class="contact-role">Event Manager, EOS</div>
+    <a href="mailto:Maria.HeronSingh@overbury.com">Maria.HeronSingh@overbury.com</a>
+  </div>
+  <div class="brandline">EOS &middot; an Overbury company</div>
+</footer>
+
+<script>
+const CUTOFF = new Date().toISOString().slice(0,10); // always "today", so only future dates are shown
+
+/* ============ ICONS ============ */
+const ICONS = {
+  cricket:    { color:'#2fa0c6', path:'M12 2a5 5 0 0 1 5 5v1h-2V7a3 3 0 0 0-6 0v1H7V7a5 5 0 0 1 5-5zm-7 9h14l-1.5 9a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L5 11z' },
+  rugby:      { color:'#b5651d', path:'M4 12c0-4 3.5-8 8-8s8 4 8 8-3.5 8-8 8-8-4-8-8zm3-3l10 6M17 9L7 15' },
+  football:   { color:'#3f7d3a', path:'M12 2l3 2v3l-3 2-3-2V4l3-2zm-8 9l2-3 3 1 1 3-2 3H5l-1-4zm18 0l-1 4h-3l-2-3 1-3 3-1 2 3zM9 15h6l2 3-2 4h-6l-2-4 2-3z' },
+  tennis:     { color:'#c9a227', path:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM4.5 8.5c2 1.5 3 3.5 3 5.5m9-5.5c-2 1.5-3 3.5-3 5.5' },
+  golf:       { color:'#2e6b4f', path:'M6 21h6M9 21V9m0-6l8 3.5L9 10' },
+  motorsport: { color:'#b12b2b', path:'M4 16l1.5-5A3 3 0 0 1 8.4 9h7.2a3 3 0 0 1 2.9 2l1.5 5M5 16h14v3H5zM8 19v1M16 19v1M7 12h10' },
+  racing:     { color:'#7a4fb5', path:'M4 18c2-6 4-11 8-11s6 5 8 11M4 18h16M9 18v0M15 18v0' },
+  music:      { color:'#c76b2f', path:'M9 18V5l11-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm11-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z' },
+  comedy:     { color:'#d1993b', path:'M9 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm6 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM4 12a8 8 0 0 1 16 0c0 4-2 7-8 9-6-2-8-5-8-9z' },
+  theatre:    { color:'#8a3fa8', path:'M4 5c2 2 5 3 8 3s6-1 8-3M4 5v6c0 6 3 10 8 10s8-4 8-10V5M4 5c2-2 5-3 8-3s6 1 8 3' },
+  shooting:   { color:'#5b6b52', path:'M12 2v4m0 12v4M2 12h4m12 0h4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z' },
+  cycling:    { color:'#2b7fb1', path:'M5 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm14 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM5 15l4-7h4l3 5m-7-5H8m4 0l3 5h4' },
+  pgolf:      { color:'#2e6b4f', path:'M6 21h6M9 21V9m0-6l8 3.5L9 10' },
+  dragonboat: { color:'#1c7896', path:'M3 15c2 2 5 3 9 3s7-1 9-3M6 15V9l3-3h6l3 3v6M9 9h6' },
+  challenge:  { color:'#8a5a2b', path:'M3 20l6-11 4 6 2-3 6 8H3z' },
+  eating:     { color:'#b5651d', path:'M6 2v8m0 0v10m0-10H4m2 0h2M6 2v6M17 2c-2 0-3 2-3 5s1 5 3 5v8' },
+  flightclub: { color:'#b12b2b', path:'M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21 7.5 13.5 2 9h7z' },
+  bowling:    { color:'#2b7fb1', path:'M12 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 14a5 5 0 1 0 0 10 5 5 0 0 0 0-10z' },
+  clays:      { color:'#8a5a2b', path:'M4 4l16 16M20 4L4 20M12 4v16M4 12h16' },
+  art:        { color:'#8a3fa8', path:'M12 3a9 9 0 1 0 3 17.5c1-.3 1-1.7 0-2-1-.3-1.5-1-1-2 .4-.8 1.5-.8 2.3-1.2A4 4 0 0 0 19 12a9 9 0 0 0-7-9z' }
+};
+
+function iconSvg(key, size){
+  const c = ICONS[key];
+  size = size || 15;
+  return `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="${c.color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${c.path}"/></svg>`;
+}
+
+/* ============ SECTIONS CONFIG ============ */
+const SECTIONS = [
+  { key:'home', label:'Home' },
+  { key:'spectator', label:'Spectator Sports' },
+  { key:'sports', label:'Sports' },
+  { key:'entertainment', label:'Entertainment' },
+  { key:'eating', label:'Eating Out' },
+  { key:'socials', label:'Project Socials' }
+];
+
+const HOME_CARDS = [
+  { key:'spectator', title:'Spectator Sports', blurb:'Cricket, rugby, football, tennis, golf, racing and motorsport fixtures worth building a client day around.', icon:'cricket' },
+  { key:'sports', title:'Sports', blurb:'Shooting, cycling, golf, dragon boat racing and challenge days for a more active, hands-on engagement.', icon:'pgolf' },
+  { key:'entertainment', title:'Entertainment', blurb:'Music, comedy and theatre dates across London\'s best arenas and venues.', icon:'music' },
+  { key:'eating', title:'Eating Out', blurb:'Chef\'s table and private dining options across the city, organised by area.', icon:'eating' },
+  { key:'socials', title:'Project Socials', blurb:'Lower-key, easy-to-book formats for a project team night out.', icon:'flightclub' }
+];
+
+const SPECTATOR_CATS = [
+  { key:'cricket', label:'Cricket' },
+  { key:'rugby', label:'Rugby' },
+  { key:'football', label:'Football' },
+  { key:'tennis', label:'Tennis' },
+  { key:'golf', label:'Golf' },
+  { key:'racing', label:'Racing' },
+  { key:'motorsport', label:'Motorsport' }
+];
+
+const ENTERTAINMENT_CATS = [
+  { key:'music', label:'Music' },
+  { key:'comedy', label:'Comedy' },
+  { key:'theatre', label:'Theatre' }
+];
+
+const SECTION_INTRO = {
+  home: '',
+  spectator: 'Upcoming confirmed fixtures. Hospitality packages for headline fixtures (Ashes, Six Nations, Wimbledon, Royal Ascot) sell out fastest, so flag interest to Maria early.',
+  sports: 'Participatory days for smaller groups: active alternatives to watching from a box.',
+  entertainment: 'Upcoming confirmed dates, mostly at the O2 Arena, Wembley Arena, Royal Albert Hall and the London Palladium.',
+  eating: 'A short, curated list of chef\'s table and private dining options by area. Restaurant availability and Michelin status move quickly, so always confirm before booking.',
+  socials: 'Lower-cost, easy-to-book formats that work well for project team socials.'
+};
+
+/* ============ DATED DATA: SPECTATOR SPORTS ============ */
+const SPECTATOR = [
+{start:'2026-11-06', ds:'6 – 8 Nov', d:'06', mo:'NOV', cat:'rugby', title:'England v Australia', venue:'Allianz Stadium, Twickenham', note:'Autumn Nations Championship opener at HQ.'},
+{start:'2026-11-13', ds:'13 – 15 Nov', d:'13', mo:'NOV', cat:'rugby', title:'England v Japan', venue:'Allianz Stadium, Twickenham', note:'Autumn Nations Championship, round two.'},
+{start:'2026-11-21', ds:'21 Nov', d:'21', mo:'NOV', cat:'rugby', title:'England v New Zealand', venue:'Allianz Stadium, Twickenham', note:'Autumn Nations Championship: England host the All Blacks.'},
+{start:'2026-11-27', ds:'27 – 29 Nov', d:'27', mo:'NOV', cat:'rugby', title:'Autumn Nations Championship: Finals Weekend', venue:'Allianz Stadium, Twickenham', note:'Placement finals across three days, closing the tournament at HQ.'},
+{start:'2026-12-18', ds:'18 – 19 Dec', d:'18', mo:'DEC', cat:'racing', title:'Howden Racing Weekend', venue:'Ascot Racecourse, Berkshire', note:'Christmas jump racing fixture.'},
+{start:'2026-12-26', ds:'26 – 27 Dec', d:'26', mo:'DEC', cat:'racing', title:'Ladbrokes Christmas Festival', venue:'Kempton Park Racecourse, Surrey', note:'Boxing Day racing tradition, headlined by the King George VI Chase.'},
+{start:'2027-01-01', ds:'1 Jan', d:'01', mo:'JAN', cat:'racing', title:"New Year's Day Racing", venue:'Cheltenham Racecourse, Gloucestershire', note:'A traditional first fixture of the year.'},
+{start:'2027-01-15', ds:'TBC', d:'TBC', mo:'', cat:'racing', title:'Festival Trials Day', venue:'Cheltenham Racecourse, Gloucestershire', note:'Key formbook fixture ahead of the Cheltenham Festival.'},
+{start:'2027-02-14', ds:'14 Feb', d:'14', mo:'FEB', cat:'rugby', title:'England v France', venue:'Allianz Stadium, Twickenham', note:'Marquee Six Nations fixture at HQ.'},
+{start:'2027-02-20', ds:'20 Feb', d:'20', mo:'FEB', cat:'rugby', title:'England v Italy', venue:'Allianz Stadium, Twickenham', note:'Six Nations round four at HQ.'},
+{start:'2027-03-12', ds:'12 – 14 Mar', d:'12', mo:'MAR', cat:'racing', title:'Cheltenham Festival', venue:'Cheltenham Racecourse, Gloucestershire', note:'Jump racing\'s biggest week, with the Gold Cup as the highlight.'},
+{start:'2027-03-13', ds:'13 Mar', d:'13', mo:'MAR', cat:'rugby', title:'England v Scotland: Calcutta Cup', venue:'Allianz Stadium, Twickenham', note:'Six Nations finale at HQ.'},
+{start:'2027-03-21', ds:'21 Mar', d:'21', mo:'MAR', cat:'football', title:'Carabao Cup Final', venue:'Wembley Stadium, London', note:'First domestic cup final of the season.'},
+{start:'2027-04-08', ds:'8 – 10 Apr', d:'08', mo:'APR', cat:'racing', title:'The Grand National', venue:'Aintree Racecourse, Merseyside', note:'The world\'s most famous steeplechase.'},
+{start:'2027-04-24', ds:'24 & 25 Apr', d:'24', mo:'APR', cat:'football', title:'FA Cup Semi Finals', venue:'Wembley Stadium, London', note:'Both semi-finals played at Wembley across the weekend.'},
+{start:'2027-05-22', ds:'22 May', d:'22', mo:'MAY', cat:'football', title:'FA Cup Final', venue:'Wembley Stadium, London', note:'The season\'s showpiece domestic final.'},
+{start:'2027-05-28', ds:'28 May – 1 Jun', d:'28', mo:'MAY', cat:'cricket', title:'England v Bangladesh: Rothesay Test', venue:"Lord's Cricket Ground, London", note:'Season-opening Test at Lord\'s.'},
+{start:'2027-06-04', ds:'4 – 6 Jun', d:'04', mo:'JUN', cat:'racing', title:'Chestertons Polo in the Park', venue:'Hurlingham Park, London', note:'A relaxed, garden-party take on corporate hospitality.'},
+{start:'2027-06-07', ds:'7 – 13 Jun', d:'07', mo:'JUN', cat:'tennis', title:'HSBC Championships: WTA 500', venue:"Queen's Club, West Kensington", note:'Grass-court build-up to Wimbledon, women\'s draw.'},
+{start:'2027-06-14', ds:'14 – 20 Jun', d:'14', mo:'JUN', cat:'tennis', title:'HSBC Championships: ATP 500', venue:"Queen's Club, West Kensington", note:'Grass-court build-up to Wimbledon, men\'s draw.'},
+{start:'2027-06-15', ds:'15 – 19 Jun', d:'15', mo:'JUN', cat:'racing', title:'Royal Ascot', venue:'Ascot Racecourse, Berkshire', note:'The pinnacle of the British racing and social calendar.'},
+{start:'2027-06-18', ds:'18 – 22 Jun', d:'18', mo:'JUN', cat:'cricket', title:'The Ashes: First Test', venue:'Trent Bridge, Nottingham', note:'England v Australia: the Ashes returns.'},
+{start:'2027-06-19', ds:'19 Jun', d:'19', mo:'JUN', cat:'rugby', title:'Gallagher Premiership Final', venue:'Allianz Stadium, Twickenham', note:'English club rugby\'s season finale.'},
+{start:'2027-06-28', ds:'28 Jun – 11 Jul', d:'28', mo:'JUN', cat:'tennis', title:'Wimbledon Championships', venue:"All England Lawn Tennis & Croquet Club, Wimbledon", note:'Book Centre Court hospitality months ahead: it\'s always the first to sell out.'},
+{start:'2027-06-30', ds:'30 Jun – 4 Jul', d:'30', mo:'JUN', cat:'cricket', title:"The Ashes: Second Test", venue:"Lord's Cricket Ground, London", note:'Ashes Test at the home of cricket.'},
+{start:'2027-07-02', ds:'2 – 4 Jul', d:'02', mo:'JUL', cat:'motorsport', title:'British Grand Prix', venue:'Silverstone, Northamptonshire', note:'F1\'s home race, once again the standout summer weekend.'},
+{start:'2027-07-08', ds:'8 – 12 Jul', d:'08', mo:'JUL', cat:'cricket', title:'The Ashes: Third Test', venue:'Edgbaston, Birmingham', note:'Ashes series continues.'},
+{start:'2027-07-21', ds:'21 – 25 Jul', d:'21', mo:'JUL', cat:'cricket', title:'The Ashes: Fourth Test', venue:'Utilita Bowl, Southampton', note:'Ashes series continues.'},
+{start:'2027-07-24', ds:'24 – 25 Jul', d:'24', mo:'JUL', cat:'racing', title:'King George Weekend', venue:'Ascot Racecourse, Berkshire', note:'Midsummer Group 1 racing weekend.'},
+{start:'2027-07-29', ds:'29 Jul – 2 Aug', d:'29', mo:'JUL', cat:'cricket', title:'The Ashes: Fifth Test', venue:'The Kia Oval, London', note:'Series decider at The Oval.'},
+];
+
+/* ============ DATED DATA: ENTERTAINMENT ============ */
+const ENTERTAINMENT = [
+{start:'2026-11-02', ds:'2 Nov', d:'02', mo:'NOV', cat:'music', title:'J. Cole: The Fall-Off Tour', venue:'The O2 Arena, London', note:'Arena hip-hop, one night only.'},
+{start:'2026-11-13', ds:'13 – 17 Nov', d:'13', mo:'NOV', cat:'music', title:'Noah Kahan: The Great Divide', venue:'The O2 Arena, London', note:'Multi-night run, easy to slot around client schedules.'},
+{start:'2026-11-20', ds:'20 Nov', d:'20', mo:'NOV', cat:'music', title:'Myles Smith', venue:'The O2 Arena, London', note:'Rising UK singer-songwriter.'},
+{start:'2026-11-24', ds:'24 – 25 Nov', d:'24', mo:'NOV', cat:'music', title:'Jungle', venue:'The O2 Arena, London', note:'Live band and visuals, a good client night out.'},
+{start:'2026-11-29', ds:'29 Nov', d:'29', mo:'NOV', cat:'music', title:'The Lord of the Rings in Concert', venue:'The O2 Arena, London', note:'Full film screening with a live orchestra.'},
+{start:'2026-12-11', ds:'11 – 12 Dec', d:'11', mo:'DEC', cat:'music', title:'Pete Tong: Ibiza Classics', venue:'The O2 Arena, London', note:'Orchestral dance classics, high-energy festive option.'},
+{start:'2026-12-19', ds:'19 – 24 Dec', d:'19', mo:'DEC', cat:'music', title:'Carols at the Royal Albert Hall', venue:'Royal Albert Hall, London', note:'A more traditional, seated Christmas outing.'},
+{start:'2026-12-24', ds:'24 Dec – 3 Jan', d:'24', mo:'DEC', cat:'theatre', title:'Disney On Ice: Discover the Magic', venue:'The O2 Arena, London', note:'Family-friendly festive show, good for a wider guest list.'},
+{start:'2026-12-30', ds:'30 Dec', d:'30', mo:'DEC', cat:'music', title:'Casino Royale in Concert', venue:'Royal Albert Hall, London', note:'Film with live orchestral score.'},
+{start:'2026-12-31', ds:'31 Dec', d:'31', mo:'DEC', cat:'music', title:'La La Land in Concert', venue:'Royal Albert Hall, London', note:'New Year\'s Eve orchestral screening.'},
+{start:'2027-01-15', ds:'TBC', d:'TBC', mo:'', cat:'theatre', title:'Cirque du Soleil', venue:'Royal Albert Hall, London', note:'Acrobatic spectacle, reliably impressive for client groups.'},
+{start:'2027-01-16', ds:'16 Jan', d:'16', mo:'JAN', cat:'music', title:'aespa', venue:'The O2 Arena, London', note:'K-pop arena show.'},
+{start:'2027-01-28', ds:'28 Jan', d:'28', mo:'JAN', cat:'music', title:'Two Door Cinema Club: 15th Anniversary Tour', venue:'The O2 Arena, London', note:'Indie-rock anniversary show.'},
+{start:'2027-01-30', ds:'30 Jan', d:'30', mo:'JAN', cat:'comedy', title:'Jack Whitehall: Bad Influence', venue:'The O2 Arena, London', note:'Big-arena stand-up, broadly likeable for mixed groups.'},
+{start:'2027-02-05', ds:'5 Feb', d:'05', mo:'FEB', cat:'music', title:'Nothing But Thieves: The Stray Dogs Tour', venue:'The O2 Arena, London', note:'UK rock band, strong arena show.'},
+{start:'2027-02-27', ds:'27 Feb', d:'27', mo:'FEB', cat:'music', title:'Brit Awards', venue:'Co-Op Live, Manchester', note:'If tickets or hospitality can be sourced, a genuine standout night.'},
+{start:'2027-03-12', ds:'12 – 14 Mar', d:'12', mo:'MAR', cat:'music', title:'Country to Country', venue:'The O2 Arena, London', note:'UK\'s biggest country music festival weekend.'},
+{start:'2027-03-16', ds:'16 – 21 Mar', d:'16', mo:'MAR', cat:'music', title:'RUSH', venue:'The O2 Arena, London', note:'Multi-night residency.'},
+{start:'2027-04-16', ds:'16 – 17 Apr', d:'16', mo:'APR', cat:'comedy', title:'Romesh Ranganathan: Will Change Your Life', venue:'The O2 Arena, London', note:'Popular UK comedian, safe crowd-pleaser.'},
+{start:'2027-04-30', ds:'30 Apr – 4 May', d:'30', mo:'APR', cat:'music', title:'Gracie Abrams: The Look at My Life Tour', venue:'The O2 Arena, London', note:'In-demand young artist, expect quick sell-through.'},
+{start:'2027-04-30', ds:'5 Apr – 10 May', d:'05', mo:'APR', cat:'music', title:'Olivia Rodrigo: The Unraveled Tour', venue:'The O2 Arena, London', note:'Extended residency, one of the year\'s hottest arena tickets.'},
+{start:'2026-11-07', ds:'7 – 8 Nov', d:'07', mo:'NOV', cat:'theatre', title:'Gladiators Live Tour 2026', venue:'OVO Arena Wembley, London', note:'Arena stunt spectacular based on the TV show, family-friendly and high energy.', url:'https://www.ovoarena.co.uk/events/detail/gladiators-live-tour-2026'},
+{start:'2026-12-04', ds:'4 Dec', d:'04', mo:'DEC', cat:'music', title:'Razorlight: \'America\' 20th Anniversary Tour', venue:'OVO Arena Wembley, London', note:'Homecoming show marking 20 years of the band\'s breakthrough album.', url:'https://www.ovoarena.co.uk/events/detail/razorlight'},
+{start:'2026-12-05', ds:'5 Dec', d:'05', mo:'DEC', cat:'music', title:'Placebo: 30th Anniversary Tour', venue:'OVO Arena Wembley, London', note:'Alternative rock icons revisiting their first two albums in full.', url:'https://www.ovoarena.co.uk/events/detail/placebo'},
+{start:'2027-02-13', ds:'13 Feb', d:'13', mo:'FEB', cat:'music', title:'Scouting For Girls', venue:'OVO Arena Wembley, London', note:'20th-anniversary homecoming show, with The Hoosiers supporting.', url:'https://www.ovoarena.co.uk/events/detail/scouting-for-girls'},
+{start:'2027-10-27', ds:'27 Oct – 6 Nov', d:'27', mo:'OCT', cat:'comedy', title:'Alan Carr: Have I Said Too Much?', venue:'London Palladium, London', note:'Multi-night run at the Palladium, broadly likeable for mixed client groups.', url:'https://alancarr.net/live/'},
+{start:'2027-05-12', ds:'12 May', d:'12', mo:'MAY', cat:'comedy', title:'John Bishop: Let\'s Go Round Again', venue:'Royal Albert Hall, London', note:'Warm, crowd-pleasing stand-up in a grander seated setting than a typical arena show.', url:'https://www.johnbishoponline.com/'},
+];
+
+/* ============ STATIC DATA: SPORTS (participatory) ============ */
+const SPORTS_GROUPS = [
+  { key:'shooting', label:'Shooting', icon:'shooting', items:[
+    { title:'Clay Pigeon Shooting Day', venue:'Squerryes Farm Shoot Lodge, Westerham, Kent', note:'Guided clay shooting with instructors for all abilities, followed by lunch in the on-site lodge. A relaxed but active alternative to a hospitality box, and works well for smaller groups of 8–20.' }
+  ]},
+  { key:'cycling', label:'Cycle Days', icon:'cycling', items:[
+    { title:'Surrey Hills Ride & Wine Tasting', venue:'Surrey Hills, finishing at Denbies Wine Estate, Dorking', note:'A scenic road or gravel route through the Surrey Hills AONB, ending with a guided tasting at England\'s largest vineyard. Bikes can be hired locally; route length adjustable for mixed abilities.' }
+  ]},
+  { key:'pgolf', label:'Golf', icon:'pgolf', items:[
+    { title:'Corporate Golf Day', venue:'Suggested: Wentworth Club, The Belfry, or St George\'s Hill, Surrey', note:'A structured Am-Am or Texas Scramble format works well for mixed-ability groups. Book well ahead for weekend slots at marquee clubs, or consider a weekday for easier availability.' }
+  ]},
+  { key:'dragonboat', label:'Dragon Boat', icon:'dragonboat', items:[
+    { title:'Dragon Boat Racing', venue:'Suggested: Royal Docks, London, or Henley-on-Thames', note:'Team-based paddling races, usually run as a round-robin between company teams. High energy, minimal skill barrier, and a strong photo opportunity.' }
+  ]},
+  { key:'challenge', label:'Challenge Days', icon:'challenge', items:[
+    { title:'Yorkshire Three Peaks Challenge', venue:'Pen-y-ghent, Whernside & Ingleborough, Yorkshire Dales', note:'A single-day, 24-mile circular walk taking in all three peaks, usually completed within 12 hours. More accessible than the National Three Peaks since it\'s one region with no overnight driving between mountains. Good for team-building and charity tie-ins.' }
+  ]}
+];
+
+/* ============ STATIC DATA: EATING OUT ============ */
+const EATING_GROUPS = [
+  { key:'city', label:'City', items:[
+    { title:'City Social', venue:'Tower 42, City of London', note:'Jason Atherton\'s Michelin-starred restaurant on the 24th floor, with an intimate chef\'s table for up to 10 and sweeping views over the City skyline.' }
+  ]},
+  { key:'westend', label:'West End', items:[
+    { title:'Kitchen Table', venue:'Fitzrovia', note:'A nineteen-seat horseshoe counter, two Michelin stars, tasting menu built around the day\'s best produce. Books up months in advance.' },
+    { title:'Hélène Darroze at The Connaught', venue:'Mayfair', note:'Chef\'s table overlooking the kitchen, built for a bit of theatre and well suited to a milestone client dinner.' }
+  ]},
+  { key:'north', label:'North', items:[
+    { title:'German Gymnasium', venue:'King\'s Cross', note:'Grade II-listed former Olympic gymnasium turned grand café and restaurant, with a private room for business lunches and receptions.', url:'https://germangymnasium.com/' },
+    { title:'The Lighterman', venue:'King\'s Cross', note:'Canalside pub and dining room on Granary Square, with a first-floor private dining room and wraparound terrace overlooking Regent\'s Canal.', url:'https://www.thelighterman.co.uk/' }
+  ]},
+  { key:'east', label:'East', items:[
+    { title:'Counter 71', venue:'Shoreditch', note:'A sixteen-seat counter in a converted pub, with a set tasting menu prepared and plated in front of guests. Cocktail bar downstairs for a pre-dinner drink.' },
+    { title:'Llama Inn', venue:'Shoreditch', note:'Peruvian rooftop restaurant on top of The Hoxton, with private dining for up to 65 and a sunlit terrace looking out over East London.', url:'https://www.llamainnlondon.com/' },
+    { title:'Marlowe', venue:'Shoreditch', note:'Bar and restaurant at Montcalm East with flexible private function rooms, well suited to a client lunch or small conference dinner.', url:'https://montcalmcollection.com/montcalm-east/restaurant/marlowe/' }
+  ]},
+  { key:'south', label:'South', items:[
+    { title:'Trinity', venue:'Clapham Old Town', note:'Michelin-starred, with a dining room that looks straight into the open kitchen. A more relaxed, neighbourhood take on fine dining.' },
+    { title:'Wagtail', venue:'London Bridge', note:'Ninth-floor rooftop restaurant with two private terraces and The Nest, a ten-seat private dining room suspended above the City skyline.', url:'https://etmcollection.co.uk/venue/wagtail-rooftop-bar-restaurant/' },
+    { title:'Seabird', venue:'Southwark', note:'Fourteenth-floor rooftop seafood restaurant atop The Hoxton, Southwark, with London\'s longest oyster list and space for larger group and private hire.', url:'https://seabirdlondon.com/' }
+  ]},
+  { key:'west', label:'West', items:[
+    { title:'Restaurant Gordon Ramsay: Inspiration Table', venue:'Chelsea', note:'Three-star tasting menu created specifically for the table, for up to four guests: the top end of what\'s available in London.' },
+    { title:'The Ledbury', venue:'Notting Hill', note:'Brett Graham\'s three-Michelin-starred restaurant. Book well in advance for a genuine occasion.' },
+    { title:'Scott\'s', venue:'Mayfair', note:'Storied Mayfair seafood institution with two private rooms, including the Renoir Room, for business lunches and client entertaining.', url:'https://scotts-mayfair.com/' }
+  ]}
+];
+
+/* ============ STATIC DATA: PROJECT SOCIALS ============ */
+const SOCIALS_ITEMS = [
+  { key:'flightclub', label:'Flight Club', icon:'flightclub', title:'Flight Club: Social Darts', venue:'Multiple London locations (Shoreditch, Islington, Bloomsbury, Angel)', note:'Interactive electronic darts with food and cocktails. Low skill barrier, high fun factor, and a reliable, easy booking for a project team social.' },
+  { key:'bowling', label:'Bowling', icon:'bowling', title:'Bowling Night', venue:'Suggested: All Star Lanes or Lane7, various London sites', note:'Retro-styled lanes with food and bars attached, and works for groups of any size with minimal planning.' },
+  { key:'clays', label:'Clays', icon:'clays', title:'Clays: Simulated Shooting', venue:'City of London (Moorgate) and Canary Wharf', note:'Indoor simulated clay shooting bays with a cocktail bar: a lower-commitment, city-centre alternative to a real shoot day.' },
+  { key:'art', label:'Art', icon:'art', title:'Life Drawing or Paint & Sip', venue:'Suggested: a local studio or private art tutor, booked to your office or a nearby venue', note:'A calmer social format, good for a relaxed evening or a team that\'s done the usual bowling/darts circuit already.' },
+  { key:'other', label:'Etc', icon:'clays', title:'Other formats worth considering', venue:'Escape rooms, crazy golf (Swingers, Puttshack), immersive experiences', note:'Good fallback options when a group has already covered the above, or when you need something for a larger, more casual gathering.' }
+];
+
+/* ============ STATE ============ */
+let currentSection = 'home';
+let activeCat = 'all';
+let activeMonth = 'all';
+
+/* ============ BUILD NAV ============ */
+const sectionNav = document.getElementById('sectionNav');
+SECTIONS.forEach(s => {
+  const btn = document.createElement('button');
+  btn.textContent = s.label;
+  btn.dataset.section = s.key;
+  if (s.key === currentSection) btn.classList.add('active');
+  btn.addEventListener('click', () => {
+    currentSection = s.key;
+    activeCat = 'all';
+    activeMonth = 'all';
+    document.querySelectorAll('#sectionNav button').forEach(b => b.classList.toggle('active', b.dataset.section === s.key));
+    document.getElementById('searchInput').value = '';
+    buildChips();
+    buildMonthFilter();
+    render();
+  });
+  sectionNav.appendChild(btn);
+});
+
+/* ============ BUILD CHIPS (depends on section) ============ */
+const chipRow = document.getElementById('chipRow');
+function makeChip(key, label, color){
+  const chip = document.createElement('button');
+  chip.className = 'chip' + (key==='all' ? ' active' : '');
+  chip.dataset.cat = key;
+  chip.innerHTML = (color ? `<span class="dot" style="background:${color}"></span>` : '') + label;
+  chip.addEventListener('click', () => {
+    activeCat = key;
+    document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.cat === key));
+    render();
+  });
+  return chip;
+}
+function buildChips(){
+  chipRow.innerHTML = '';
+  let list = [];
+  if (currentSection === 'spectator') list = SPECTATOR_CATS;
+  else if (currentSection === 'entertainment') list = ENTERTAINMENT_CATS;
+  else if (currentSection === 'sports') list = SPORTS_GROUPS.map(g => ({key:g.key, label:g.label}));
+  else if (currentSection === 'eating') list = EATING_GROUPS.map(g => ({key:g.key, label:g.label}));
+  else if (currentSection === 'socials') list = []; // socials list is short, no chips needed
+
+  if (!list.length){
+    chipRow.style.display = 'none';
+    return;
+  }
+  chipRow.style.display = 'flex';
+  chipRow.appendChild(makeChip('all', 'All', null));
+  list.forEach(c => chipRow.appendChild(makeChip(c.key, c.label, ICONS[c.icon || c.key] ? ICONS[c.icon || c.key].color : null)));
+}
+
+/* ============ BUILD MONTH FILTER (spectator / entertainment only) ============ */
+const monthSelect = document.getElementById('monthSelect');
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+function monthLabel(ym){
+  const parts = ym.split('-');
+  const y = parts[0], m = parseInt(parts[1], 10);
+  return `${MONTH_NAMES[m-1]} ${y}`;
+}
+function buildMonthFilter(){
+  let source = null;
+  if (currentSection === 'spectator') source = SPECTATOR;
+  else if (currentSection === 'entertainment') source = ENTERTAINMENT;
+
+  if (!source){
+    monthSelect.style.display = 'none';
+    monthSelect.innerHTML = '';
+    return;
+  }
+
+  const months = Array.from(new Set(
+    source.filter(e => e.start >= CUTOFF).map(e => e.start.slice(0,7))
+  )).sort();
+
+  if (!months.length){
+    monthSelect.style.display = 'none';
+    monthSelect.innerHTML = '';
+    return;
+  }
+
+  monthSelect.style.display = 'block';
+  monthSelect.innerHTML = '<option value="all">All months</option>' +
+    months.map(m => `<option value="${m}">${monthLabel(m)}</option>`).join('');
+  monthSelect.value = activeMonth;
+}
+monthSelect.addEventListener('change', () => {
+  activeMonth = monthSelect.value;
+  render();
+});
+
+/* ============ RENDER ============ */
+const resultsEl = document.getElementById('results');
+const searchInput = document.getElementById('searchInput');
+const introEl = document.getElementById('sectionIntro');
+
+function catIconSvg(catKey){
+  return iconSvg(catKey, 15);
+}
+
+function renderDatedGroup(title, items){
+  const section = document.createElement('section');
+  section.className = 'group';
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
+  section.appendChild(h2);
+  const grid = document.createElement('div');
+  grid.className = 'card-grid';
+  items.forEach(e => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const isRange = e.d !== 'TBC';
+    card.innerHTML = `
+      <div class="datebox${isRange ? ' range' : ''}">
+        <div class="d">${e.d}</div>
+        <div class="m">${e.mo}</div>
+      </div>
+      <div class="body">
+        <div class="cat-row">${catIconSvg(e.cat)}<span class="cat-label">${labelForCat(e.cat)}</span></div>
+        <h3>${e.title}</h3>
+        <div class="venue">${e.venue}</div>
+        <div class="note">${e.note}</div>
+        <div class="datestring">${e.ds}</div>
+        ${e.url ? `<a class="eventlink" href="${e.url}" target="_blank" rel="noopener">Event info ↗</a>` : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  resultsEl.appendChild(section);
+}
+
+function labelForCat(catKey){
+  const all = SPECTATOR_CATS.concat(ENTERTAINMENT_CATS);
+  const found = all.find(c => c.key === catKey);
+  return found ? found.label : catKey;
+}
+
+function renderIdeaGroup(title, iconKey, items){
+  const section = document.createElement('section');
+  section.className = 'group';
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
+  section.appendChild(h2);
+  const grid = document.createElement('div');
+  grid.className = 'card-grid';
+  items.forEach(it => {
+    const card = document.createElement('div');
+    card.className = 'idea-card';
+    card.innerHTML = `
+      <div class="icon-wrap">${iconSvg(it._icon || iconKey, 20)}</div>
+      <div class="body">
+        <h3>${it.title}</h3>
+        <div class="tag">${it.venue}</div>
+        <div class="note">${it.note}</div>
+        ${it.url ? `<a class="eventlink" href="${it.url}" target="_blank" rel="noopener">Visit website ↗</a>` : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  resultsEl.appendChild(section);
+}
+
+function matchesSearch(q, text){
+  if (!q) return true;
+  return text.toLowerCase().includes(q);
+}
+
+function render(){
+  const q = searchInput.value.trim().toLowerCase();
+  resultsEl.innerHTML = '';
+  introEl.textContent = SECTION_INTRO[currentSection] || '';
+  let anyShown = false;
+
+  const toolbarEl = document.getElementById('toolbar');
+  if (currentSection === 'home'){
+    toolbarEl.style.display = 'none';
+    introEl.style.display = 'none';
+  } else {
+    toolbarEl.style.display = '';
+    introEl.style.display = '';
+  }
+
+  if (currentSection === 'home'){
+    const hero = document.createElement('div');
+    hero.className = 'home-hero';
+    hero.innerHTML = `
+      <div class="display">Where to next?</div>
+      <p>Five ways to give a client a reason to remember the day. Pick a category to get started.</p>`;
+    resultsEl.appendChild(hero);
+
+    const grid = document.createElement('div');
+    grid.className = 'home-grid';
+    HOME_CARDS.forEach(hc => {
+      const card = document.createElement('button');
+      card.className = 'home-card';
+      card.innerHTML = `
+        <div class="icon-wrap">${iconSvg(hc.icon, 22)}</div>
+        <div class="body">
+          <h3>${hc.title}</h3>
+          <div class="blurb">${hc.blurb}</div>
+        </div>
+        <div class="chevron">&rsaquo;</div>`;
+      card.addEventListener('click', () => {
+        currentSection = hc.key;
+        activeCat = 'all';
+        activeMonth = 'all';
+        document.querySelectorAll('#sectionNav button').forEach(b => b.classList.toggle('active', b.dataset.section === hc.key));
+        buildChips();
+        buildMonthFilter();
+        render();
+        window.scrollTo({top:0, behavior:'instant'});
+      });
+      grid.appendChild(card);
+    });
+    resultsEl.appendChild(grid);
+    return;
+  }
+
+  if (currentSection === 'spectator'){
+    SPECTATOR_CATS.forEach(cat => {
+      if (activeCat !== 'all' && activeCat !== cat.key) return;
+      const items = SPECTATOR.filter(e => e.cat === cat.key && e.start >= CUTOFF &&
+        (activeMonth === 'all' || e.start.slice(0,7) === activeMonth) &&
+        (matchesSearch(q, e.title) || matchesSearch(q, e.venue)));
+      if (!items.length) return;
+      anyShown = true;
+      renderDatedGroup(cat.label, items);
+    });
+  }
+
+  else if (currentSection === 'entertainment'){
+    ENTERTAINMENT_CATS.forEach(cat => {
+      if (activeCat !== 'all' && activeCat !== cat.key) return;
+      const items = ENTERTAINMENT.filter(e => e.cat === cat.key && e.start >= CUTOFF &&
+        (activeMonth === 'all' || e.start.slice(0,7) === activeMonth) &&
+        (matchesSearch(q, e.title) || matchesSearch(q, e.venue)));
+      if (!items.length) return;
+      anyShown = true;
+      renderDatedGroup(cat.label, items);
+    });
+  }
+
+  else if (currentSection === 'sports'){
+    SPORTS_GROUPS.forEach(g => {
+      if (activeCat !== 'all' && activeCat !== g.key) return;
+      const items = g.items.filter(it => matchesSearch(q, it.title) || matchesSearch(q, it.venue));
+      if (!items.length) return;
+      anyShown = true;
+      renderIdeaGroup(g.label, g.icon, items);
+    });
+  }
+
+  else if (currentSection === 'eating'){
+    EATING_GROUPS.forEach(g => {
+      if (activeCat !== 'all' && activeCat !== g.key) return;
+      const items = g.items.map(it => Object.assign({_icon:'eating'}, it)).filter(it => matchesSearch(q, it.title) || matchesSearch(q, it.venue));
+      if (!items.length) return;
+      anyShown = true;
+      renderIdeaGroup(g.label, 'eating', items);
+    });
+  }
+
+  else if (currentSection === 'socials'){
+    const items = SOCIALS_ITEMS.filter(it => matchesSearch(q, it.title) || matchesSearch(q, it.venue));
+    if (items.length){
+      anyShown = true;
+      const section = document.createElement('section');
+      section.className = 'group';
+      const grid = document.createElement('div');
+      grid.className = 'card-grid';
+      items.forEach(it => {
+        const card = document.createElement('div');
+        card.className = 'idea-card';
+        card.innerHTML = `
+          <div class="icon-wrap">${iconSvg(it.icon, 20)}</div>
+          <div class="body">
+            <h3>${it.title}</h3>
+            <div class="tag">${it.venue}</div>
+            <div class="note">${it.note}</div>
+            ${it.url ? `<a class="eventlink" href="${it.url}" target="_blank" rel="noopener">Visit website ↗</a>` : ''}
+          </div>`;
+        grid.appendChild(card);
+      });
+      section.appendChild(grid);
+      resultsEl.appendChild(section);
+    }
+  }
+
+  if (!anyShown){
+    resultsEl.innerHTML = `<div class="empty-state">
+      <div class="display">Nothing here yet</div>
+      <div>Try a different search term or category.</div>
+    </div>`;
+  }
+}
+
+searchInput.addEventListener('input', render);
+buildChips();
+buildMonthFilter();
+render();
+</script>
+</body>
+</html>
